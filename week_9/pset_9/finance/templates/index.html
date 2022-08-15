@@ -1,0 +1,44 @@
+{%extends "layout.html"%}
+
+{% block title %}
+    portfolio
+{% endblock %}
+
+{%block main%}
+    {%if empty == true%}
+        <h3>Empty</h3>    
+    {%else%}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Symbol</th>
+                    <th>Name</th>
+                    <th>Shares</th>
+                    <th>Price</th>
+                    <th>TOTAL</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for purchase in purchases%}
+                    <tr>
+                        <td>{{purchase["symbol"]}}</td>
+                        <td>{{purchase["name"]}}</td>
+                        <td>{{purchase["shares"]}}</td>
+                        <td>{{purchase["price"] | usd}}</td>
+                        <td>{{purchase["total"] | usd}}</td>
+                    </tr>
+                {%endfor%}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>TOTAL</th>
+                    <td>{{grandTotal | usd}}</td>
+                </tr>
+                <tr>
+                    <th>Balance</th>
+                    <td>{{user[0]["cash"] | usd}}</td>
+                </tr>
+            </tfoot>
+        </table>
+    {%endif%}
+{%endblock%}

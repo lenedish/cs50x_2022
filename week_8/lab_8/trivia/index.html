@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            // Part 1
+            function checkAnswer(event)
+            {
+                var response = document.getElementById("response");
+                var trigger = event.srcElement;
+                var clickedButton = trigger.innerHTML;
+
+                if (clickedButton == '6 people per 1 sheep') {
+                    trigger.style.backgroundColor = 'red';
+                    response.innerHTML = "Incorrect";
+                    response.style.color = "red";
+                }
+                else if (clickedButton == '3 people per 1 sheep') {
+                    trigger.style.backgroundColor = 'red';
+                    response.innerHTML = "Incorrect";
+                    response.style.color = "red";
+                }
+                else if (clickedButton == '1 person per 1 sheep') {
+                    trigger.style.backgroundColor = 'red';
+                    response.innerHTML = "Incorrect";
+                    response.style.color = "red";
+                }
+                else if (clickedButton == '1 person per 3 sheeps') {
+                    trigger.style.backgroundColor = 'red';
+                    response.innerHTML = "Incorrect";
+                    response.style.color = "red";
+                }
+                else
+                {
+                    trigger.style.backgroundColor = 'green';
+                    response.innerHTML = "Correct";
+                    response.style.color = "green";
+                }
+            }
+
+            // Part 2
+            function listen()
+            {
+                document.querySelector('#submitButton').addEventListener('click', function() {
+                    var answer = document.querySelector('#answer').value;
+                    var input = document.querySelector('#answer');
+                    var q2response = document.getElementById("q2response");
+                    if (answer.toLowerCase() == 'switzerland')
+                    {
+                        input.style.borderColor = 'green';
+                        q2response.innerHTML = "Correct";
+                        q2response.style.color = "green";
+
+                    }
+                    else
+                    {
+                        input.style.borderColor = 'red';
+                        q2response.innerHTML = "Inorrect";
+                        q2response.style.color = "red";
+                    }
+                });
+            }
+            document.addEventListener('DOMContentLoaded', listen);
+    </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3>What is the approximate ratio of people to sheep in New Zeland?</h3>
+                <button onclick="checkAnswer(event)">6 people per 1 sheep</button>
+                <button onclick="checkAnswer(event)">3 people per 1 sheep</button>
+                <button onclick="checkAnswer(event)">1 person per 1 sheep</button>
+                <button onclick="checkAnswer(event)">1 person per 3 sheeps</button>
+                <button onclick="checkAnswer(event)">1 person per 6 sheeps</button>
+                <p id="response"></p>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3>In which country is it illegal to own only one guinea pig, as a lone guinea pig might get lonely?</h3>
+                <input id="answer" placeholder="Answer" type="text" autocomplite="off">
+                <button id="submitButton">Check Answer</button>
+                <p id="q2response"></p>
+            </div>
+        </div>
+    </body>
+</html>

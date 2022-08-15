@@ -1,0 +1,18 @@
+{%extends "layout.html"%}
+
+{%block body%}
+    <div>
+        <h2>Register</h2>
+        <form action="/register" method="post">
+            <input name="name" autofocus autocomplete="off" placeholder="Name" type="text">
+            <select name="sport">
+                <option disable selected>None</option>
+                {%for sport in sports%}
+                    <option>{{sport}}</option>
+                {%endfor%}
+            </select>
+            <br>
+            <input style="margin-top:10px; padding:5px" type="submit" value="Register">
+        </form>
+    </div>
+{%endblock%}

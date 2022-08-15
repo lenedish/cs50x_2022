@@ -1,0 +1,40 @@
+{%extends "layout.html"%}
+
+{% block title %}
+    History
+{% endblock %}
+
+{%block main%}
+    {%if empty == true%}
+        <h3>Empty</h3>    
+    {%else%}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>Transacted</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for transaction in transactions%}
+                <tr>
+                    <td>{{transaction["symbol"]}}</td>
+                    <td>{{transaction["name"]}}</td>
+                    <td>{{transaction["shares"]}}</td>
+                    <td>{{transaction["price"] | usd}}</td>
+                    <td>{{transaction["timestamp"]}}</td>
+                </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+    <div style="margin: 25px">
+        <form action="/history" method="post">
+            <input name="deleteRequest" type="hidden" value="true">
+            <button type="submit" class="btn btn-danger">Clear history</button>
+        </form>
+    </div>
+    {%endif%}
+{%endblock%}

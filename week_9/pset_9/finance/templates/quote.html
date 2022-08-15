@@ -1,0 +1,33 @@
+{%extends "layout.html"%}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{%block main%}
+    {%if requestMethod == 'post'%}
+        <table class="table table-striped table-bordered">
+            <tbody>
+                <tr>
+                    <th scope="row">Name</th>
+                    <td>{{quote["name"]}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Price</th>
+                    <td>{{quote["price"] | usd}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Symbol</th>
+                    <td>{{quote["symbol"]}}</td>
+                </tr>
+            </tbody>
+        </table>
+    {%else%}
+        <form action="/quote" method="post">
+            <div class="mb-3">
+                <input autocomplete="off" required autofocus class="form-control mx-auto w-auto" name="symbol" placeholder="Symbol" type="text">
+            </div>
+            <button class="btn btn-primary" type="submit">Quote</button>
+        </form>
+    {%endif%}
+{%endblock%}

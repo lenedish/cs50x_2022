@@ -1,0 +1,116 @@
+#container {
+    display: grid;
+    justify-content: center;
+    width: 90%;
+    gap: 10px;
+    grid-template-columns: [col-start] minmax(auto,320px)
+    [col2] 1fr [cal-3] 1fr [col-end];
+    grid-auto-rows: auto auto auto auto;
+    grid-template-areas:   
+    "header header header"
+    "aside main main"
+    "aside add add"
+    "footer footer footer";
+    margin: auto;
+}
+
+header {
+    grid-area: header;
+    border-bottom: 2px solid #4b42f5;
+}
+
+main {
+    grid-area: main;
+
+}
+
+aside {
+    grid-area: aside;
+    border-right: 2px solid #4b42f5;
+}
+
+#add {
+    grid-area: add;
+}
+
+footer {
+    grid-area: footer;
+    padding: 10px;
+    background-color: azure;
+    outline: 1px solid grey;
+}
+
+#asideInfo {
+    margin-top: 20px;
+    border-left: 2px solid #4b42f5;
+    border-bottom: 1px solid grey;
+    padding: 5px;
+}
+
+hr {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#mainInfo {
+    padding: 10px;
+}
+
+#title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: azure;
+    padding: 5px;
+}
+
+#stats-block {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    padding: 5px;
+    margin-top: 10px;
+    
+}
+
+li {
+    margin-top: 5px;
+}
+
+#stats {
+    border-right: 1px solid grey;
+}
+
+#stats-block p {
+    margin: 0;
+}
+
+#score {
+
+    padding: 0px 10px 0px 0px;
+}
+
+#rank {
+    display: flex;
+    margin-top: 15px;
+}
+
+#rank p {
+    margin-right: 10px;
+}
+
+#synopsis {
+    margin-top: 30px;
+}
+
+#iframe {
+    margin-left: 20px;
+}
+
+
+
